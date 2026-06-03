@@ -66,7 +66,7 @@ function Register() {
     setFieldErrors({});
 
     try {
-      await register(formData);
+      await register({ ...formData, email: formData.email.toLowerCase().trim() });
       navigate("/login", { 
         state: { mensajeExito: "¡Registro exitoso! Revisa tu correo electrónico para obtener tu contraseña." } 
       });

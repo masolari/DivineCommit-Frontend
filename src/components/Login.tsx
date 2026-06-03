@@ -54,7 +54,7 @@ function Login() {
     setFieldErrors({});
 
     try {
-      const data = await login(credenciales.email, credenciales.password);
+      const data = await login(credenciales.email.toLowerCase().trim(), credenciales.password);
       
       // Guarda el token JWT de forma persistente en el navegador
       localStorage.setItem("token", data.token); 
