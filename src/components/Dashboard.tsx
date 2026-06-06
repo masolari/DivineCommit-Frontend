@@ -4,6 +4,7 @@ import { useNavigate, Routes, Route, useLocation } from "react-router-dom";
 import MyProfile from "./MyProfile";
 import ChangePassword from "./ChangePassword"; 
 import UserManagement from "./UserManagement";
+import MyReservations from "./MyReservations";
 import { getRoleFromToken } from "../services/AuthServices";
 import "../styles/dashboard.css";
 
@@ -57,6 +58,9 @@ function Dashboard() {
                         <li className={isActive("/dashboard/cambiar-contrasena")} onClick={() => navigate("/dashboard/cambiar-contrasena")}>
                             Cambiar Contraseña
                         </li>
+                        <li className={isActive("/dashboard/consultar-reserva")} onClick={() => navigate("/dashboard/consultar-reserva")}>
+                            Consultar Reserva
+                        </li>
                         {role === "Admin" && (
                             <li className={isActive("/dashboard/gestionar-usuarios")} onClick={() => navigate("/dashboard/gestionar-usuarios")}>
                                 Gestionar Usuarios
@@ -77,6 +81,7 @@ function Dashboard() {
                         } />
                         <Route path="/perfil" element={<MyProfile />} />
                         <Route path="/cambiar-contrasena" element={<ChangePassword />} />
+                        <Route path="/consultar-reserva" element={<MyReservations />} />
                         {role === "Admin" && (
                             <Route path="/gestionar-usuarios" element={<UserManagement />} />
                         )}
